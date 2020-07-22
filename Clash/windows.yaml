@@ -10,7 +10,7 @@ proxies:
 proxy-providers:
   HK:
     type: http
-    path: ./Providers/HK.yaml
+    path: ./Provider/Proxy/HK.yaml
     url: http://127.0.0.1:25500/sub?target=clash&url=%URL%&include=(%E9%A6%99%E6%B8%AF)&list=true&udp=true
     interval: 86400
     health-check:
@@ -20,7 +20,7 @@ proxy-providers:
 
   JP:
     type: http
-    path: ./Providers/JP.yaml
+    path: ./Provider/Proxy/JP.yaml
     url: http://127.0.0.1:25500/sub?target=clash&url=%URL%&include=(%E6%97%A5%E6%9C%AC)&list=true&udp=true
     interval: 86400
     health-check:
@@ -30,7 +30,7 @@ proxy-providers:
 
   SG:
     type: http
-    path: ./Providers/SG.yaml
+    path: ./Provider/Proxy/SG.yaml
     url: http://127.0.0.1:25500/sub?target=clash&url=%URL%&include=(%E6%96%B0%E5%8A%A0%E5%9D%A1)&list=true&udp=true
     interval: 86400
     health-check:
@@ -40,7 +40,7 @@ proxy-providers:
 
   TW:
     type: http
-    path: ./Providers/TW.yaml
+    path: ./Provider/Proxy/TW.yaml
     url: http://127.0.0.1:25500/sub?target=clash&url=%URL%&include=(%E5%8F%B0%E6%B9%BE)&list=true&udp=true
     interval: 86400
     health-check:
@@ -50,7 +50,7 @@ proxy-providers:
 
   US:
     type: http
-    path: ./Providers/US.yaml
+    path: ./Provider/Proxy/US.yaml
     url: http://127.0.0.1:25500/sub?target=clash&url=%URL%&include=(%E7%BE%8E%E5%9B%BD)&list=true&udp=true
     interval: 86400
     health-check:
@@ -66,7 +66,7 @@ proxy-groups:
       - Japan
       - Singapore
       - Taiwan
-      - American
+      - United States
 
   - name: "Telegram"
     type: select
@@ -75,7 +75,7 @@ proxy-groups:
       - Japan
       - Singapore
       - Taiwan
-      - American
+      - United States
 
   - name: "Global"
     type: select
@@ -84,7 +84,7 @@ proxy-groups:
       - Japan
       - Singapore
       - Taiwan
-      - American
+      - United States
 
   - name: "Final"
     type: select
@@ -93,7 +93,7 @@ proxy-groups:
       - Japan
       - Singapore
       - Taiwan
-      - American
+      - United States
       - DIRECT
 
   - name: "Hong Kong"
@@ -116,7 +116,7 @@ proxy-groups:
     use:
       - TW
 
-  - name: "American"
+  - name: "United States"
     type: select
     use:
       - US
@@ -191,6 +191,7 @@ rule-providers:
   # path: ./Provider/RuleSet/Extra/IP-Blackhole.yaml
   # url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/IP-Blackhole.yaml
   # interval: 86400
+
   # ChinaIP:
   # type: http
   # behavior: ipcidr
