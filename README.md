@@ -1,2 +1,2 @@
-# QuantumultX
- QuantumultX配置文件
+# Rules
+ 常用配置文件
