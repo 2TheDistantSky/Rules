@@ -88,29 +88,39 @@ proxy-groups:
       - DIRECT
 
   - name: "Hong Kong"
-    type: select
+    type: url-test
     use:
       - HK
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
 
   - name: "Japan"
-    type: select
+    type: url-test
     use:
       - JP
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
 
   - name: "Singapore"
-    type: select
+    type: url-test
     use:
       - SG
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
 
   - name: "Taiwan"
-    type: select
+    type: url-test
     use:
       - TW
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
 
   - name: "United States"
-    type: select
+    type: url-test
     use:
       - US
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
 
 rule-providers:
   Unbreak:
@@ -166,7 +176,7 @@ rule-providers:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/StreamingMedia/Video/Pornhub.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/Video/Pornhub.list
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Pornhub.yaml
     interval: 86400
 
   Global:
