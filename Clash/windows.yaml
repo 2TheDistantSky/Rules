@@ -152,7 +152,7 @@ rule-providers:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/StreamingMedia/Video/Netflix.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Netflix.yaml 
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Netflix.yaml
     interval: 86400
 
   Bahamut:
@@ -160,6 +160,13 @@ rule-providers:
     behavior: classical
     path: ./Provider/RuleSet/StreamingMedia/Video/Bahamut.yaml
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Bahamut.yaml
+    interval: 86400
+
+  Pornhub:
+    type: http
+    behavior: classical
+    path: ./Provider/RuleSet/StreamingMedia/Video/Pornhub.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Quantumult/Filter/StreamingMedia/Video/Pornhub.list
     interval: 86400
 
   Global:
