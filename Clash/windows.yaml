@@ -68,15 +68,6 @@ proxy-groups:
       - Taiwan
       - United States
 
-  - name: "Telegram"
-    type: select
-    proxies:
-      - Hong Kong
-      - Japan
-      - Singapore
-      - Taiwan
-      - United States
-
   - name: "Global"
     type: select
     proxies:
@@ -143,32 +134,32 @@ rule-providers:
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Hijacking.yaml
     interval: 86400
 
-  Privacy:
+  China:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Guard/Privacy.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Privacy.yaml
+    path: ./Provider/RuleSet/China.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/China.yaml
     interval: 86400
 
-  Bilibili:
+  ChinaIP:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Streaming/Bilibili.yaml
-    url: https://raw.githubusercontent.com/HotKids/Rules/master/Clash/RuleSet/Bilibili.yaml
+    path: ./Provider/RuleSet/Extra/ChinaIP.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/ChinaIP.yaml
     interval: 86400
 
-  Streaming:
+  Netflix:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Streaming/Streaming.yaml
-    url: https://raw.githubusercontent.com/HotKids/Rules/master/Clash/RuleSet/Streaming.yaml
+    path: ./Provider/RuleSet/StreamingMedia/Video/Netflix.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Netflix.yaml 
     interval: 86400
 
-  Telegram:
+  Bahamut:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Extra/Telegram.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/Telegram/Telegram.yaml
+    path: ./Provider/RuleSet/StreamingMedia/Video/Bahamut.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Bahamut.yaml
     interval: 86400
 
   Global:
@@ -178,27 +169,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Global.yaml
     interval: 86400
 
-  China:
-    type: http
-    behavior: classical
-    path: ./Provider/RuleSet/China.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/China.yaml
-    interval: 86400
-
-  # IP-Blackhole:
-  # type: http
-  # behavior: ipcidr
-  # path: ./Provider/RuleSet/Extra/IP-Blackhole.yaml
-  # url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/IP-Blackhole.yaml
-  # interval: 86400
-
-  # ChinaIP:
-  # type: http
-  # behavior: ipcidr
-  # path: ./Provider/RuleSet/Extra/ChinaIP.yaml
-  # url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/ChinaIP.yaml
-  # interval: 86400
-
 rules:
   # Unbreak
   - RULE-SET,Unbreak,DIRECT
@@ -206,22 +176,17 @@ rules:
   # AD
   - RULE-SET,Advertising,REJECT
   - RULE-SET,Hijacking,REJECT
-  - RULE-SET,Privacy,REJECT
+
+  #China
+  - RULE-SET,China,DIRECT
+  - RULE-SET,ChinaIP,DIRECT
 
   # Streaming
-  - RULE-SET,Streaming,Netflix
+  - RULE-SET,Netflix,Netflix
+  - RULE-SET,Bahamut,Taiwan
 
-  # CNTV
-  - RULE-SET,Bilibili,DIRECT
-
-  # Telegram
-  - RULE-SET,Telegram,Telegram
-
-  # (DNS Cache Pollution) / (IP Blackhole) / (Region-Restricted Access Denied) / (Network Jitter)
+  # Global
   - RULE-SET,Global,Global
-
-  # China Area Network
-  - RULE-SET,China,DIRECT
 
   # Local Area Network
   - IP-CIDR,192.168.0.0/16,DIRECT
@@ -234,8 +199,5 @@ rules:
   # Tencent
   - IP-CIDR,119.28.28.28/32,DIRECT
   - IP-CIDR,182.254.116.0/24,DIRECT
-
-  # GeoIP China
-  - GEOIP,CN,DIRECT
 
   - MATCH,Final
