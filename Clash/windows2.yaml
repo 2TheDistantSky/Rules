@@ -8,8 +8,8 @@ proxies:
 proxy-providers:
   HK:
     type: http
-    path: ./Provider/Proxy/HK.yaml
-    url: http://127.0.0.1:25500/sub?target=clash&url=Sub.yaml&include=(%E9%A6%99%E6%B8%AF)&list=true&udp=true
+    path: ./Provider/Proxy/HK2.yaml
+    url: http://127.0.0.1:25500/sub?target=clash&url=Sub2.yaml&include=(%E9%A6%99%E6%B8%AF)&exclude=(V3)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -18,8 +18,8 @@ proxy-providers:
 
   JP:
     type: http
-    path: ./Provider/Proxy/JP.yaml
-    url: http://127.0.0.1:25500/sub?target=clash&url=Sub.yaml&include=(%E6%97%A5%E6%9C%AC)&list=true&udp=true
+    path: ./Provider/Proxy/JP2.yaml
+    url: http://127.0.0.1:25500/sub?target=clash&url=Sub2.yaml&include=(%E4%B8%9C%E4%BA%AC%7C%E5%A4%A7%E9%98%AA)&exclude=(V3)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -28,8 +28,8 @@ proxy-providers:
 
   SG:
     type: http
-    path: ./Provider/Proxy/SG.yaml
-    url: http://127.0.0.1:25500/sub?target=clash&url=Sub.yaml&include=(%E6%96%B0%E5%8A%A0%E5%9D%A1)&list=true&udp=true
+    path: ./Provider/Proxy/SG2.yaml
+    url: http://127.0.0.1:25500/sub?target=clash&url=Sub2.yaml&include=(%E6%96%B0%E5%8A%A0%E5%9D%A1)&exclude=(V3)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -38,8 +38,8 @@ proxy-providers:
 
   TW:
     type: http
-    path: ./Provider/Proxy/TW.yaml
-    url: http://127.0.0.1:25500/sub?target=clash&url=Sub.yaml&include=(%E5%8F%B0%E6%B9%BE)&list=true&udp=true
+    path: ./Provider/Proxy/TW2.yaml
+    url: http://127.0.0.1:25500/sub?target=clash&url=Sub2.yaml&include=(%E5%8F%B0%E5%8C%97%7C%E5%BD%B0%E5%8C%96)&exclude=(V3)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -48,8 +48,8 @@ proxy-providers:
 
   US:
     type: http
-    path: ./Provider/Proxy/US.yaml
-    url: http://127.0.0.1:25500/sub?target=clash&url=Sub.yaml&include=(%E7%BE%8E%E5%9B%BD)&list=true&udp=true
+    path: ./Provider/Proxy/US2.yaml
+    url: http://127.0.0.1:25500/sub?target=clash&url=Sub2.yaml&include=(%E6%B4%9B%E6%9D%89%E7%9F%B6%7C%E5%9C%A3%E5%85%8B%E6%8B%89%E6%8B%89%7C%E5%87%A4%E5%87%B0%E5%9F%8E)&exclude=(V3)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -86,39 +86,29 @@ proxy-groups:
       - DIRECT
 
   - name: "Hong Kong"
-    type: url-test
+    type: select
     use:
       - HK
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
 
   - name: "Japan"
-    type: url-test
+    type: select
     use:
       - JP
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
 
   - name: "Singapore"
-    type: url-test
+    type: select
     use:
       - SG
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
 
   - name: "Taiwan"
-    type: url-test
+    type: select
     use:
       - TW
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
 
   - name: "United States"
-    type: url-test
+    type: select
     use:
       - US
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
 
 rule-providers:
   Unbreak:
