@@ -160,13 +160,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Bahamut.yaml
     interval: 86400
 
-  Pornhub:
-    type: http
-    behavior: classical
-    path: ./Provider/RuleSet/StreamingMedia/Video/Pornhub.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Pornhub.yaml
-    interval: 86400
-
   Global:
     type: http
     behavior: classical
