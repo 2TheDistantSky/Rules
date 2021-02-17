@@ -177,7 +177,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Netflix.yaml
     interval: 86400
 
-    YouTube:
+  YouTube:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/StreamingMedia/Video/YouTube.yaml
