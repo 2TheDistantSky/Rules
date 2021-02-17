@@ -132,6 +132,13 @@ rule-providers:
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Hijacking.yaml
     interval: 86400
 
+  Privacy:
+    type: http
+    behavior: classical
+    path: ./Provider/RuleSet/Guard/Hijacking.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Privacy.yaml
+    interval: 86400
+
   China:
     type: http
     behavior: classical
@@ -160,13 +167,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Bahamut.yaml
     interval: 86400
 
-  Pornhub:
-    type: http
-    behavior: classical
-    path: ./Provider/RuleSet/StreamingMedia/Video/Pornhub.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Pornhub.yaml
-    interval: 86400
-
   Global:
     type: http
     behavior: classical
@@ -181,14 +181,15 @@ rules:
   # AD
   - RULE-SET,Advertising,REJECT
   - RULE-SET,Hijacking,REJECT
+  - RULE-SET,Privacy,REJECT
 
   #China
   - RULE-SET,China,DIRECT
   - RULE-SET,ChinaIP,DIRECT
 
   # Streaming
-  - RULE-SET,Netflix,Netflix
   - RULE-SET,Bahamut,Taiwan
+  - RULE-SET,Netflix,Netflix
 
   # Global
   - RULE-SET,Global,Global
