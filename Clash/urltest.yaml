@@ -207,7 +207,7 @@ rules:
   # Streaming
   - RULE-SET,Bahamut,Taiwan
   - RULE-SET,Netflix,Netflix
-  - RULE-SET,YouTube,US
+  - RULE-SET,YouTube,United States
 
   # Global
   - RULE-SET,Global,Global
