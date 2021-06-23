@@ -1,0 +1,9 @@
+#!name=知乎手机网页版优化
+#!desc=人在美国，刚下飞机
+#!system=ios
+
+[Header Rewrite]
+^https:\/\/www\.zhihu\.com\/(question|topic) header-replace User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36
+
+[MITM]
+hostname = %APPEND% www.zhihu.com
