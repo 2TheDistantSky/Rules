@@ -3,7 +3,7 @@
 #!system=ios
 
 [Header Rewrite]
-^https:\/\/www\.zhihu\.com\/(question|topic) header-replace User-Agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+^https:\/\/www\.zhihu\.com\/(question|topic) header-replace User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36
 
 [URL Rewrite]
 ^https?:\/\/link\.zhihu\.com/\?target=(https?)%3A//(.*) $1://$2 302
