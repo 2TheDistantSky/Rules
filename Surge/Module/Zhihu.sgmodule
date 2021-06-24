@@ -9,8 +9,11 @@
 # 关闭外链警告
 ^https?:\/\/link\.zhihu\.com/\?target=(https?)%3A//(.*) $1://$2 302
 
-# 不跳转 App
+# 回答不跳转 App
 ^https:\/\/oia\.zhihu\.com\/answers\/([0-9]+)\?.* https://www.zhihu.com/answer/$1 302
+
+# 文章不跳转 App
+^https:\/\/oia\.zhihu\.com\/articles\/([0-9]+)\?.* https://zhuanlan.zhihu.com/p/$1 302
 
 [Script]
 zhihu.question.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/betterweb/zhihux.user.js,pattern=^https:\/\/www\.zhihu\.com\/question,type=http-response
