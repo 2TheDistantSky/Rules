@@ -3,7 +3,11 @@
 #!system=ios
 
 [Header Rewrite]
-^https:\/\/www\.zhihu\.com\/(question|topic) header-replace User-Agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36
+^https:\/\/www\.zhihu\.com\/(question|topic) header-replace User-Agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+
+[Script]
+zhihu.res.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/betterweb/zhihux.user.js,pattern=^https:\/\/www\.zhihu\.com\/question,type=http-response
+zhihu.req.js = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/elecV2/QuantumultX-Tools/master/betterweb/zhihux.user.js,pattern=^https:\/\/www\.zhihu\.com\/topic,type=http-response
 
 [MITM]
-hostname = %APPEND% www.zhihu.com
+hostname = %APPEND% oia.zhihu.com, link.zhihu.com, www.zhihu.com
