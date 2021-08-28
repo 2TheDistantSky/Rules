@@ -49,7 +49,7 @@ proxy-providers:
   US:
     type: http
     path: ./Provider/Proxy/US.yaml
-    url: http://127.0.0.1:25500/sub?target=clash&url=Sub.yaml&include=(%E7%BE%8E%E5%9B%BD%7CUS%7CUnited%20States)&list=true&udp=true
+    url: http://127.0.0.1:25500/sub?target=clash&url=Sub.yaml&include=(%E7%BE%8E%E5%9B%BD%7C(%3F%3C!%5BAR%5D)US%7CUnited%20States)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
