@@ -163,13 +163,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/ChinaIP.yaml
     interval: 86400
 
-  Bahamut:
-    type: http
-    behavior: classical
-    path: ./Provider/RuleSet/StreamingMedia/Video/Bahamut.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Bahamut.yaml
-    interval: 86400
-
   Netflix:
     type: http
     behavior: classical
@@ -205,7 +198,6 @@ rules:
   - RULE-SET,ChinaIP,DIRECT
 
   # Streaming
-  - RULE-SET,Bahamut,Taiwan
   - RULE-SET,Netflix,Netflix
   - RULE-SET,YouTube,United States
 
