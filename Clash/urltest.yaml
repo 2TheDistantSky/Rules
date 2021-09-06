@@ -125,70 +125,70 @@ rule-providers:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/Unbreak.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Unbreak.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Unbreak.yaml
     interval: 86400
 
   Advertising:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/Guard/Advertising.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Advertising.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Advertising.yaml
     interval: 86400
 
   Hijacking:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/Guard/Hijacking.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Hijacking.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Hijacking.yaml
     interval: 86400
 
   Privacy:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/Guard/Hijacking.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Guard/Privacy.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Privacy.yaml
     interval: 86400
 
   China:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/China.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/China.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/China.yaml
     interval: 86400
 
   ChinaIP:
     type: http
     behavior: ipcidr
     path: ./Provider/RuleSet/Extra/ChinaIP.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/ChinaIP.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/ChinaIP.yaml
     interval: 86400
 
   Netflix:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/StreamingMedia/Video/Netflix.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/Netflix.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Netflix.yaml
     interval: 86400
 
   YouTube:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/StreamingMedia/Video/YouTube.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/YouTube.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/YouTube.yaml
     interval: 86400
 
   TelegramUS:
     type: http
     behavior: classical
     path: ./Provider\RuleSet\Extra\Telegram\TelegramUS.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/Telegram/TelegramUS.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/TelegramUS.yaml
     interval: 86400  
 
   Global:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/Global.yaml
-    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Global.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Global.yaml
     interval: 86400
 
 rules:
