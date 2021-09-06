@@ -132,21 +132,21 @@ rule-providers:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/Guard/Advertising.yaml
-    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Advertising.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Advertising.yaml
     interval: 86400
 
   Hijacking:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/Guard/Hijacking.yaml
-    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Hijacking.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Hijacking.yaml
     interval: 86400
 
   Privacy:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/Guard/Privacy.yaml
-    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Privacy.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Privacy.yaml
     interval: 86400
 
   China:
@@ -160,28 +160,28 @@ rule-providers:
     type: http
     behavior: ipcidr
     path: ./Provider/RuleSet/Extra/ChinaIP.yaml
-    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/ChinaIP.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Extra/ChinaIP.yaml
     interval: 86400
 
   Netflix:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/StreamingMedia/Video/Netflix.yaml
-    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Netflix.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/StreamingMedia/Video/Netflix.yaml
     interval: 86400
 
   YouTube:
     type: http
     behavior: classical
     path: ./Provider/RuleSet/StreamingMedia/Video/YouTube.yaml
-    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/YouTube.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/StreamingMedia/Video/YouTube.yaml
     interval: 86400
 
   TelegramUS:
     type: http
     behavior: classical
     path: ./Provider\RuleSet\Extra\Telegram\TelegramUS.yaml
-    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/TelegramUS.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Extra/Telegram/TelegramUS.yaml
     interval: 86400  
 
   Global:
