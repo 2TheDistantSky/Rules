@@ -177,7 +177,7 @@ rule-providers:
     url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Video/YouTube.yaml
     interval: 86400
 
-TelegramUS:
+  TelegramUS:
     type: http
     behavior: classical
     path: ./Provider\RuleSet\Extra\Telegram\TelegramUS.yaml
