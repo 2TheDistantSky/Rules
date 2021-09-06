@@ -145,7 +145,7 @@ rule-providers:
   Privacy:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Guard/Hijacking.yaml
+    path: ./Provider/RuleSet/Guard/Privacy.yaml
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Privacy.yaml
     interval: 86400
 
