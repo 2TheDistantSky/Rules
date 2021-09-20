@@ -57,15 +57,6 @@ proxy-providers:
       interval: 3600
 
 proxy-groups:
-  - name: "Netflix"
-    type: select
-    proxies:
-      - Hong Kong
-      - Japan
-      - Singapore
-      - Taiwan
-      - United States
-
   - name: "Global"
     type: select
     proxies:
@@ -161,13 +152,6 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Extra/ChinaIP.yaml
     interval: 86400
 
-  Netflix:
-    type: http
-    behavior: classical
-    path: ./Provider/RuleSet/StreamingMedia/Video/Netflix.yaml
-    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/StreamingMedia/Video/Netflix.yaml
-    interval: 86400
-
   YouTube:
     type: http
     behavior: classical
@@ -203,7 +187,6 @@ rules:
   - RULE-SET,ChinaIP,DIRECT
 
   # Streaming
-  - RULE-SET,Netflix,Netflix
   - RULE-SET,YouTube,United States
 
   # Telegram
