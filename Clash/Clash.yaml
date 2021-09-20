@@ -91,9 +91,11 @@ proxy-groups:
     interval: 300
 
   - name: "Singapore"
-    type: select
+    type: url-test
     use:
       - SG
+    url: "http://www.gstatic.com/generate_204"
+    interval: 300
 
   - name: "Taiwan"
     type: url-test
