@@ -180,7 +180,14 @@ rule-providers:
     behavior: classical
     path: ./Provider\RuleSet\Extra\Telegram\TelegramUS.yaml
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Extra/Telegram/TelegramUS.yaml
-    interval: 86400  
+    interval: 86400
+
+  E-hentai:
+    type: http
+    behavior: classical
+    path: ./Provider\RuleSet\E-hentai.yaml
+    url: https://cdn.jsdelivr.net/gh/0x00000007/Rules@master/Clash/E-hentai.yaml
+    interval: 86400
 
   Global:
     type: http
@@ -208,6 +215,9 @@ rules:
 
   # Telegram
   - RULE-SET,TelegramUS,United States
+
+  # E-hentai
+  - RULE-SET,E-hentai,United States
 
   # Global
   - RULE-SET,Global,Global
