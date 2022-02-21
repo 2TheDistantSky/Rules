@@ -1,5 +1,8 @@
 payload:
   # > E-hentai
   - DOMAIN-SUFFIX,e-hentai.org
+  - DOMAIN-SUFFIX,ehgt.org
+  - DOMAIN-SUFFIX,ehwiki.org
   - DOMAIN-SUFFIX,exhentai.org
   - DOMAIN-SUFFIX,hath.network
+  - DOMAIN-SUFFIX,hentaiverse.org
