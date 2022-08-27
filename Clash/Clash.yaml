@@ -147,6 +147,13 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Privacy.yaml
     interval: 86400
 
+  L4D2:
+    type: http
+    behavior: ipcidr
+    path: ./Provider/RuleSet/L4D2.yaml
+    url: https://cdn.jsdelivr.net/gh/0x00000007/Rules@master/Clash/L4D2.yaml
+    interval: 86400
+
   China:
     type: http
     behavior: classical
@@ -204,6 +211,9 @@ rules:
   - RULE-SET,Advertising,REJECT
   - RULE-SET,Hijacking,REJECT
   - RULE-SET,Privacy,REJECT
+
+  #L4D2
+  - RULE-SET,L4D2,REJECT
 
   #China
   - RULE-SET,China,DIRECT
