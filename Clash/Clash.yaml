@@ -175,6 +175,13 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/StreamingMedia/Video/YouTube.yaml
     interval: 86400
 
+  Spotify:
+    type: http
+    behavior: classical
+    path: ./Provider/RuleSet/StreamingMedia/Media/Spotify.yaml
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/StreamingMedia/Music/Spotify.yaml
+    interval: 86400
+
   Telegram:
     type: http
     behavior: classical
@@ -212,6 +219,7 @@ rules:
   # Streaming
   - RULE-SET,Netflix,Netflix
   - RULE-SET,YouTube,United States
+  - RULE-SET,Spotify,United States
 
   # Telegram
   - RULE-SET,Telegram,United States
