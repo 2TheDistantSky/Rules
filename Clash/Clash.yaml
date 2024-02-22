@@ -6,7 +6,7 @@ ipv6: false
 proxy-providers:
   HK:
     type: http
-    path: ./Provider/Proxy/HK.yaml
+    path: "./proxy_provider/HK.yaml"
     url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E9%A6%99%E6%B8%AF%7CHK%7CHong%20Kong)&list=true&udp=true
     interval: 86400
     health-check:
@@ -16,7 +16,7 @@ proxy-providers:
 
   JP:
     type: http
-    path: ./Provider/Proxy/JP.yaml
+    path: "./proxy_provider/JP.yaml"
     url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E6%97%A5%E6%9C%AC%7CJP%7CJapan)&list=true&udp=true
     interval: 86400
     health-check:
@@ -26,7 +26,7 @@ proxy-providers:
 
   SG:
     type: http
-    path: ./Provider/Proxy/SG.yaml
+    path: "./proxy_provider/SG.yaml"
     url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E6%96%B0%E5%8A%A0%E5%9D%A1%7CSG%7CSingapore)&list=true&udp=true
     interval: 86400
     health-check:
@@ -36,7 +36,7 @@ proxy-providers:
 
   TW:
     type: http
-    path: ./Provider/Proxy/TW.yaml
+    path: "./proxy_provider/TW.yaml"
     url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E5%8F%B0%E6%B9%BE%7CTW%7CTaiwan)&list=true&udp=true
     interval: 86400
     health-check:
@@ -46,7 +46,7 @@ proxy-providers:
 
   US:
     type: http
-    path: ./Provider/Proxy/US.yaml
+    path: "./proxy_provider/US.yaml"
     url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E7%BE%8E%E5%9B%BD%7C(%3F%3C!%5BAR%5D)US%7CUnited%20States)&list=true&udp=true
     interval: 86400
     health-check:
@@ -64,7 +64,7 @@ proxy-groups:
       - Taiwan
       - United States
 
-  - name: "Global"
+  - name: "Oversea"
     type: select
     proxies:
       - Hong Kong
@@ -120,84 +120,77 @@ rule-providers:
   Unbreak:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Unbreak.yaml
+    path: "./rule_provider/Unbreak.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Unbreak.yaml
     interval: 86400
 
   Advertising:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Guard/Advertising.yaml
+    path: "./rule_provider/Advertising.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Advertising.yaml
     interval: 86400
 
   Hijacking:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Guard/Hijacking.yaml
+    path: "./rule_provider/Hijacking.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Hijacking.yaml
     interval: 86400
 
   Privacy:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Guard/Privacy.yaml
+    path: "./rule_provider/Privacy.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Guard/Privacy.yaml
     interval: 86400
 
   China:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/China.yaml
+    path: "./rule_provider/China.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/China.yaml
     interval: 86400
 
   ChinaIP:
     type: http
     behavior: ipcidr
-    path: ./Provider/RuleSet/Extra/ChinaIP.yaml
+    path: "./rule_provider/ChinaIP.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Extra/ChinaIP.yaml
     interval: 86400
 
   Netflix:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/StreamingMedia/Video/Netflix.yaml
+    path: "./rule_provider/Netflix.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/StreamingMedia/Video/Netflix.yaml
     interval: 86400
 
   YouTube:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/StreamingMedia/Video/YouTube.yaml
+    path: "./rule_provider/YouTube.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/StreamingMedia/Video/YouTube.yaml
     interval: 86400
 
   Spotify:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/StreamingMedia/Media/Spotify.yaml
+    path: "./rule_provider/Spotify.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/StreamingMedia/Music/Spotify.yaml
-    interval: 86400
-
-  Telegram:
-    type: http
-    behavior: classical
-    path: ./Provider\RuleSet\Extra\Telegram\Telegram.yaml
-    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Extra/Telegram/Telegram.yaml
     interval: 86400
 
   E-hentai:
     type: http
     behavior: classical
-    path: ./Provider\RuleSet\E-hentai.yaml
+    path: "./rule_provider/E-hentai.yaml"
     url: https://cdn.jsdelivr.net/gh/0x00000007/Rules@master/Clash/E-hentai.yaml
     interval: 86400
 
   Global:
     type: http
     behavior: classical
-    path: ./Provider/RuleSet/Global.yaml
+    path: "./rule_provider/Global.yaml"
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Global.yaml
     interval: 86400
 
@@ -219,14 +212,11 @@ rules:
   - RULE-SET,YouTube,United States
   - RULE-SET,Spotify,United States
 
-  # Telegram
-  - RULE-SET,Telegram,United States
-
   # E-hentai
   - RULE-SET,E-hentai,United States
 
-  # Global
-  - RULE-SET,Global,Global
+  # Oversea
+  - RULE-SET,Global,Oversea
 
   # Local Area Network
   - IP-CIDR,192.168.0.0/16,DIRECT
