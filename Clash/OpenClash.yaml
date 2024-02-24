@@ -8,6 +8,12 @@ pgu: &pgu
   use:
     - airport
 
+ru: &ru
+  type: http
+  behavior: domain
+  format: yaml
+  interval: 86400
+
 geox-url:
   geoip: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
   geosite: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
@@ -18,12 +24,8 @@ proxy-providers:
     type: http
     path: "./proxy_provider/airport.yaml"
     url: "sub_link"
-    interval: 3600
+    interval: 86400
     exclude-filter: "(?i)premium"
-    health-check:
-      enable: true
-      url: "http://1.1.1.1/generate_204"
-      interval: 300
 
 proxy-groups:
   - { name: Apple, <<: *pgs }
@@ -40,21 +42,14 @@ proxy-groups:
 
 rule-providers:
   anti-AD:
-    type: http
-    behavior: domain
-    format: yaml
+    <<: *ru
     path: ./rule_provider/anti-AD.yaml
     url: "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml"
-    interval: 86400
-    timeout: 5000
 
   anti-AD-white:
-    type: http
-    behavior: domain
-    format: yaml
+    <<: *ru
     path: ./rule_provider/anti-AD-white.yaml
     url: "https://raw.githubusercontent.com/privacy-protection-tools/dead-horse/master/anti-ad-white-for-clash.yaml"
-    interval: 600
 
 rules:
   - AND,((RULE-SET,anti-AD),(NOT,((RULE-SET,anti-AD-white)))),REJECT
