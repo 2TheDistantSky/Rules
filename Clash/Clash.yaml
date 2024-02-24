@@ -7,7 +7,7 @@ proxy-providers:
   HK:
     type: http
     path: "./proxy_provider/HK.yaml"
-    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E9%A6%99%E6%B8%AF%7CHK%7CHong%20Kong)&list=true&udp=true
+    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E9%A6%99%E6%B8%AF%7CHK%7CHong%20Kong)&exclude=(Premium)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -17,7 +17,7 @@ proxy-providers:
   JP:
     type: http
     path: "./proxy_provider/JP.yaml"
-    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E6%97%A5%E6%9C%AC%7CJP%7CJapan)&list=true&udp=true
+    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E6%97%A5%E6%9C%AC%7CJP%7CJapan)&exclude=(Premium)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -27,7 +27,7 @@ proxy-providers:
   SG:
     type: http
     path: "./proxy_provider/SG.yaml"
-    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E6%96%B0%E5%8A%A0%E5%9D%A1%7CSG%7CSingapore)&list=true&udp=true
+    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E6%96%B0%E5%8A%A0%E5%9D%A1%7CSG%7CSingapore)&exclude=(Premium)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -37,7 +37,7 @@ proxy-providers:
   TW:
     type: http
     path: "./proxy_provider/TW.yaml"
-    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E5%8F%B0%E6%B9%BE%7CTW%7CTaiwan)&list=true&udp=true
+    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E5%8F%B0%E6%B9%BE%7CTW%7CTaiwan)&exclude=(Premium)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -47,7 +47,7 @@ proxy-providers:
   US:
     type: http
     path: "./proxy_provider/US.yaml"
-    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E7%BE%8E%E5%9B%BD%7C(%3F%3C!%5BAR%5D)US%7CUnited%20States)&list=true&udp=true
+    url: http://localhost:25500/sub?target=clash&url=sub_link&include=(%E7%BE%8E%E5%9B%BD%7C(%3F%3C!%5BAR%5D)US%7CUnited%20States)&exclude=(Premium)&list=true&udp=true
     interval: 86400
     health-check:
       enable: true
@@ -55,6 +55,15 @@ proxy-providers:
       interval: 3600
 
 proxy-groups:
+  - name: "Apple"
+    type: select
+    proxies:
+      - Hong Kong
+      - Japan
+      - Singapore
+      - Taiwan
+      - United States
+
   - name: "Netflix"
     type: select
     proxies:
@@ -159,6 +168,13 @@ rule-providers:
     url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Extra/ChinaIP.yaml
     interval: 86400
 
+  Apple:
+    type: http
+    behavior: classical
+    path: "./rule_provider/Apple.yaml"
+    url: https://cdn.jsdelivr.net/gh/DivineEngine/Profiles@master/Clash/RuleSet/Extra/Apple/Apple.yaml
+    interval: 86400
+
   Netflix:
     type: http
     behavior: classical
@@ -203,7 +219,10 @@ rules:
   - RULE-SET,Hijacking,REJECT
   - RULE-SET,Privacy,REJECT
 
-  #China
+  # Apple
+  - RULE-SET,Apple,Apple
+
+  # China
   - RULE-SET,China,DIRECT
   - RULE-SET,ChinaIP,DIRECT
 
