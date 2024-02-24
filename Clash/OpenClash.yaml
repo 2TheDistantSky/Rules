@@ -22,7 +22,7 @@ proxy-providers:
     exclude-filter: "(?i)premium"
     health-check:
       enable: true
-      url: http://1.1.1.1/generate_204
+      url: "http://1.1.1.1/generate_204"
       interval: 300
 
 proxy-groups:
