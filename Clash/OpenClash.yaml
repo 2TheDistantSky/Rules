@@ -1,0 +1,70 @@
+pgs: &pgs { type: select, proxies: [HK, TW, JP, US, SG] }
+
+pgu: &pgu
+  type: url-test
+  url: "http://1.1.1.1/generate_204"
+  interval: 300
+  tolerance: 2
+  use:
+    - airport
+
+geox-url:
+  geoip: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
+  geosite: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb"
+
+proxy-providers:
+  airport:
+    type: http
+    path: "./proxy_provider/airport.yaml"
+    url: "sub_link"
+    interval: 3600
+    exclude-filter: "(?i)premium"
+    health-check:
+      enable: true
+      url: http://1.1.1.1/generate_204
+      interval: 300
+
+proxy-groups:
+  - { name: Apple, <<: *pgs }
+  - { name: Ehentai, <<: *pgs }
+  - { name: Netflix, <<: *pgs }
+  - { name: Spotify, <<: *pgs }
+  - { name: YouTube, <<: *pgs }
+  - { name: Final, <<: *pgs }
+  - { name: HK, <<: *pgu, filter: "(?i)港|hk|hongkong|hong kong" }
+  - { name: TW, <<: *pgu, filter: "(?i)台|tw|taiwan" }
+  - { name: JP, <<: *pgu, filter: "(?i)日本|jp|japan" }
+  - { name: US, <<: *pgu, filter: "(?i)美|usa|unitedstates|united states" }
+  - { name: SG, <<: *pgu, filter: "(?i)(新|sg|singapore)" }
+
+rule-providers:
+  anti-AD:
+    type: http
+    behavior: domain
+    format: yaml
+    path: ./rule_provider/anti-AD.yaml
+    url: "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml"
+    interval: 600
+
+  anti-AD-white:
+    type: http
+    behavior: domain
+    format: yaml
+    path: ./rule_provider/anti-AD-white.yaml
+    url: "https://raw.githubusercontent.com/privacy-protection-tools/dead-horse/master/anti-ad-white-for-clash.yaml"
+    interval: 600
+
+rules:
+  - AND,((RULE-SET,anti-AD),(NOT,((RULE-SET,anti-AD-white)))),REJECT
+  - GEOSITE,apple,Apple
+  - GEOSITE,apple-cn,Apple
+  - GEOSITE,ehentai,Ehentai
+  - GEOSITE,youtube,YouTube
+  - GEOSITE,netflix,Netflix
+  - GEOSITE,spotify,Spotify
+  - GEOSITE,geolocation-!cn,Final
+  - GEOIP,netflix,Netflix
+  - GEOSITE,CN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,Final
