@@ -23,9 +23,9 @@ proxy-providers:
 
 proxy-groups:
   - { name: Apple, <<: *proxy_group_select }
-  - { name: Ehentai, <<: *proxy_group_select }
   - { name: Netflix, <<: *proxy_group_select }
   - { name: Spotify, <<: *proxy_group_select }
+  - { name: Telegram, <<: *proxy_group_select }
   - { name: YouTube, <<: *proxy_group_select }
   - { name: Overseas, <<: *proxy_group_select }
   - { name: Final, <<: *proxy_group_select }
@@ -55,17 +55,25 @@ rule-providers:
 rules:
   - AND,((RULE-SET,anti-AD),(NOT,((RULE-SET,anti-AD-white)))),REJECT
 
+  # direct
+  - GEOSITE,CN,DIRECT
+  - GEOSITE,pikpak,DIRECT
+  - GEOSITE,geolocation-cn,DIRECT
+  - GEOSITE,steam@cn,DIRECT
+
+  - GEOIP,CN,DIRECT
+
+  # proxy
   - GEOSITE,apple,Apple
-  - GEOSITE,ehentai,Ehentai
+  - GEOSITE,ehentai,US
   - GEOSITE,youtube,YouTube
   - GEOSITE,netflix,Netflix
   - GEOSITE,spotify,Spotify
-  - GEOIP,netflix,Netflix
-
-  - GEOSITE,pikpak,DIRECT
-  - GEOSITE,CN,DIRECT
-  - GEOIP,CN,DIRECT
-
+  - GEOSITE,telegram,Telegram
   - GEOSITE,geolocation-!cn,Overseas
 
+  - GEOIP,telegram,Telegram
+  - GEOIP,netflix,Netflix
+
+  # final
   - MATCH,Final
