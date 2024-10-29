@@ -1,10 +1,15 @@
-proxy_group_select: &proxy_group_select { type: select, proxies: [HK, TW, JP, US, SG, DIRECT] }
+region: &region { type: select, proxies: [HK, TW, JP, US, SG, DIRECT] }
 
-proxy_group_url_test: &proxy_group_url_test
+url_test: &url_test
   type: url-test
-  url: "http://1.1.1.1/generate_204"
+  url: "https://www.gstatic.com/generate_204"
   interval: 300
-  tolerance: 2
+  tolerance: 10
+  use:
+    - airport
+
+select: &select
+  type: select
   use:
     - airport
 
@@ -22,18 +27,20 @@ proxy-providers:
     exclude-filter: "(?i)premium"
 
 proxy-groups:
-  - { name: Apple, <<: *proxy_group_select }
-  - { name: Netflix, <<: *proxy_group_select }
-  - { name: Spotify, <<: *proxy_group_select }
-  - { name: Telegram, <<: *proxy_group_select }
-  - { name: YouTube, <<: *proxy_group_select }
-  - { name: Overseas, <<: *proxy_group_select }
-  - { name: Final, <<: *proxy_group_select }
-  - { name: HK, <<: *proxy_group_url_test, filter: "(?i)港|hk|hongkong|hong kong" }
-  - { name: TW, <<: *proxy_group_url_test, filter: "(?i)台|tw|taiwan" }
-  - { name: JP, <<: *proxy_group_url_test, filter: "(?i)日本|jp|japan" }
-  - { name: US, <<: *proxy_group_url_test, filter: "(?i)美|usa|unitedstates|united states" }
-  - { name: SG, <<: *proxy_group_url_test, filter: "(?i)(新|sg|singapore)" }
+  - { name: Apple, <<: *region }
+  - { name: Ehentai, <<: *region }
+  - { name: Netflix, <<: *region }
+  - { name: Spotify, <<: *region }
+  - { name: Telegram, <<: *region }
+  - { name: YouTube, <<: *region }
+  - { name: Steam, <<: *select }
+  - { name: Overseas, <<: *region }
+  - { name: Final, <<: *region }
+  - { name: HK, <<: *url_test, filter: "(?i)港|hk|hongkong|hong kong" }
+  - { name: TW, <<: *url_test, filter: "(?i)台|tw|taiwan" }
+  - { name: JP, <<: *url_test, filter: "(?i)日本|jp|japan" }
+  - { name: US, <<: *url_test, filter: "(?i)美|usa|unitedstates|united states" }
+  - { name: SG, <<: *url_test, filter: "(?i)(新|sg|singapore)" }
 
 rule-providers:
   anti-AD:
@@ -59,21 +66,19 @@ rules:
   - GEOSITE,CN,DIRECT
   - GEOSITE,pikpak,DIRECT
   - GEOSITE,geolocation-cn,DIRECT
-  - GEOSITE,steam@cn,DIRECT
-
   - GEOIP,CN,DIRECT
 
   # proxy
   - GEOSITE,apple,Apple
-  - GEOSITE,ehentai,US
+  - GEOSITE,ehentai,Ehentai
   - GEOSITE,youtube,YouTube
   - GEOSITE,netflix,Netflix
-  - GEOSITE,spotify,Spotify
-  - GEOSITE,telegram,Telegram
-  - GEOSITE,geolocation-!cn,Overseas
-
-  - GEOIP,telegram,Telegram
   - GEOIP,netflix,Netflix
+  - GEOSITE,spotify,Spotify
+  - GEOSITE,steam,Steam
+  - GEOSITE,telegram,Telegram
+  - GEOIP,telegram,Telegram
+  - GEOSITE,geolocation-!cn,Overseas
 
   # final
   - MATCH,Final
