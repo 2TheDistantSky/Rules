@@ -31,11 +31,13 @@ proxy-groups:
   - { name: Ehentai, <<: *region }
   - { name: Netflix, <<: *region }
   - { name: Spotify, <<: *region }
-  - { name: Telegram, <<: *region }
-  - { name: YouTube, <<: *region }
   - { name: Steam, <<: *select }
+  - { name: Telegram, <<: *region }
+  - { name: TikTok, <<: *region }
+  - { name: YouTube, <<: *region }
   - { name: Overseas, <<: *region }
   - { name: Final, <<: *region }
+
   - { name: HK, <<: *url_test, filter: "(?i)港|hk|hongkong|hong kong" }
   - { name: TW, <<: *url_test, filter: "(?i)台|tw|taiwan" }
   - { name: JP, <<: *url_test, filter: "(?i)日本|jp|japan" }
@@ -78,6 +80,7 @@ rules:
   - GEOSITE,steam,Steam
   - GEOSITE,telegram,Telegram
   - GEOIP,telegram,Telegram
+  - GEOSITE,tiktok,TikTok
   - GEOSITE,geolocation-!cn,Overseas
 
   # final
