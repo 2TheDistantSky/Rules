@@ -28,6 +28,7 @@ proxy-providers:
 
 proxy-groups:
   - { name: Apple, <<: *region }
+  - { name: PikPak, <<: *region }
   - { name: Ehentai, <<: *region }
   - { name: Netflix, <<: *region }
   - { name: Spotify, <<: *region }
@@ -64,13 +65,10 @@ rule-providers:
 rules:
   - AND,((RULE-SET,anti-AD),(NOT,((RULE-SET,anti-AD-white)))),REJECT
 
-  # direct
+  - GEOSITE,pikpak,PikPak
   - GEOSITE,CN,DIRECT
-  - GEOSITE,pikpak,DIRECT
   - GEOSITE,geolocation-cn,DIRECT
   - GEOIP,CN,DIRECT
-
-  # proxy
   - GEOSITE,apple,Apple
   - GEOSITE,ehentai,Ehentai
   - GEOSITE,youtube,YouTube
