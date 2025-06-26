@@ -1,0 +1,85 @@
+region: &region { type: select, proxies: [HK, TW, JP, US, SG, DIRECT] }
+
+url_test: &url_test
+  type: url-test
+  url: "https://www.gstatic.com/generate_204"
+  interval: 300
+  tolerance: 10
+  use:
+    - airport
+
+select: &select
+  type: select
+  use:
+    - airport
+
+geox-url:
+  geoip: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
+  geosite: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb"
+
+proxy-providers:
+  airport:
+    type: http
+    path: "./proxy_provider/airport.yaml"
+    url: "sub_link"
+    interval: 86400
+    exclude-filter: "(?i)premium"
+
+proxy-groups:
+  - { name: Apple, <<: *region }
+  - { name: PikPak, <<: *region }
+  - { name: Ehentai, <<: *region }
+  - { name: Netflix, <<: *region }
+  - { name: Spotify, <<: *region }
+  - { name: Steam, <<: *select }
+  - { name: Telegram, <<: *region }
+  - { name: TikTok, <<: *region }
+  - { name: YouTube, <<: *region }
+  - { name: Overseas, <<: *region }
+  - { name: Final, <<: *region }
+
+  - { name: HK, <<: *url_test, filter: "(?i)港|hk|hongkong|hong kong" }
+  - { name: TW, <<: *url_test, filter: "(?i)台|tw|taiwan" }
+  - { name: JP, <<: *url_test, filter: "(?i)日本|jp|japan" }
+  - { name: US, <<: *url_test, filter: "(?i)美|usa|unitedstates|united states" }
+  - { name: SG, <<: *url_test, filter: "(?i)(新|sg|singapore)" }
+
+rule-providers:
+  anti-AD:
+    type: http
+    behavior: domain
+    format: yaml
+    interval: 86400
+    path: ./rule_provider/anti-AD.yaml
+    url: "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml"
+
+  anti-AD-white:
+    type: http
+    behavior: domain
+    format: yaml
+    interval: 86400
+    path: ./rule_provider/anti-AD-white.yaml
+    url: "https://raw.githubusercontent.com/privacy-protection-tools/dead-horse/master/anti-ad-white-for-clash.yaml"
+
+rules:
+  - AND,((RULE-SET,anti-AD),(NOT,((RULE-SET,anti-AD-white)))),REJECT
+
+  - GEOSITE,pikpak,PikPak
+  - GEOSITE,CN,DIRECT
+  - GEOSITE,geolocation-cn,DIRECT
+  - GEOIP,CN,DIRECT
+  - GEOSITE,apple,Apple
+  - GEOSITE,ehentai,Ehentai
+  - GEOSITE,youtube,YouTube
+  - GEOSITE,netflix,Netflix
+  - GEOIP,netflix,Netflix
+  - GEOSITE,spotify,Spotify
+  - GEOSITE,steam,Steam
+  - GEOSITE,telegram,Telegram
+  - GEOIP,telegram,Telegram
+  - GEOSITE,tiktok,TikTok
+  - GEOSITE,geolocation-!cn,Overseas
+
+  # final
+  - MATCH,Final
