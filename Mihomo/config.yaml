@@ -314,7 +314,7 @@ rules:
   - GEOSITE,bahamut,巴哈姆特
   - GEOSITE,spotify,Spotify
   - GEOSITE,pixiv,Pixiv
-  - GEOSITE,steam@cn,DIRECT
+  # - GEOSITE,steam@cn,DIRECT
   - GEOSITE,steam,Steam
   - GEOSITE,onedrive,OneDrive
   - GEOSITE,microsoft,微软服务
