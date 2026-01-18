@@ -189,7 +189,7 @@ proxy-groups:
   - { name: 🇭🇰 香港, <<: *use, filter: "(?i)港|hk|hongkong|hong kong" }
   - { name: 🇹🇼 台湾, <<: *use, filter: "(?i)台|tw|taiwan" }
   - { name: 🇯🇵 日本, <<: *use, filter: "(?i)🇯🇵 日本|jp|japan" }
-  - { name: 🇺🇸 美国, <<: *use, filter: "(?i)美|us|unitedstates|united states" }
+  - { name: 🇺🇸 美国, <<: *use, filter: "(?i)(^|[^a-z])(us|usa|美国|united states)([^a-z]|$)" }
   - { name: 🇸🇬 新加坡, <<: *use, filter: "(?i)(新|sg|singapore)" }
 
 rules:
