@@ -183,7 +183,7 @@ proxy-groups:
   - { name: 🎵 TikTok, <<: *pr }
   - { name: 🎧 Spotify, <<: *pr }
   - { name: 🎮 Steam, <<: *pr }
-  - { name: 🐟 漏网之鱼, <<: *pr }
+  - { name: 🌐 Proxy, <<: *pr }
   # 分隔,下面是地区分组
   - { name: 🇭🇰 香港, <<: *use, filter: "(?i)港|hk|hongkong|hong kong" }
   - { name: 🇹🇼 台湾, <<: *use, filter: "(?i)台|tw|taiwan" }
@@ -197,13 +197,17 @@ rules:
   - GEOSITE,apple-cn,🍎 Apple
   - GEOSITE,ehentai,🔞 EHentai
   - GEOSITE,youtube,📺 YouTube
+  - GEOSITE,google,🌐 Proxy
+  # Google CN 不走代理会导致香港等地区节点 Play Store 异常
+  - GEOSITE,google-cn,🌐 Proxy
   - GEOSITE,telegram,✈️ Telegram
   - GEOSITE,netflix,🎬 NETFLIX
   - GEOSITE,tiktok,🎵 TikTok
   - GEOSITE,spotify,🎧 Spotify
   - GEOSITE,steam@cn,DIRECT
   - GEOSITE,steam,🎮 Steam
-  - GEOSITE,geolocation-!cn,🐟 漏网之鱼
+  - GEOSITE,geolocation-!cn,🌐 Proxy
+  - GEOIP,google,🌐 Proxy
   - GEOIP,netflix,🎬 NETFLIX
   - GEOIP,telegram,✈️ Telegram
   - GEOSITE,CN,DIRECT
@@ -214,4 +218,4 @@ rules:
   - IP-CIDR,192.168.0.0/16,DIRECT
   - IP-CIDR,100.64.0.0/10,DIRECT
   - IP-CIDR,127.0.0.0/8,DIRECT
-  - MATCH,🐟 漏网之鱼
+  - MATCH,🌐 Proxy
